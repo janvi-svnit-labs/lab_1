@@ -12,7 +12,14 @@ int main()
     scanf("%d", &mins);
     printf("Enter seconds: ");
     scanf("%d", &sec);
-    total_sec = hrs*3600 + mins*60 + sec; //calculations
-    printf("The time is %d hours %d minutes %d seconds OR %d total seconds", hrs, mins, sec, total_sec);
+
+    //handling negative values
+    if(hrs<0 || mins<0 || sec<0){
+        printf("Enter valid values");
+    }
+    else{
+        total_sec = hrs*3600 + mins*60 + sec; //calculations
+        printf("The time is %d hours %d minutes %d seconds OR %d total seconds", hrs, mins, sec, total_sec);
+    }
     return 0;
 }
