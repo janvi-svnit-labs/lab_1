@@ -23,8 +23,15 @@ int main()
         scanf("%d", &hra);
         printf("Enter other allowances given: ");
         scanf("%d", &other_allow);
-        gross_salary = basic_salary+hra+other_allow;
-        printf("\nYour gross salary is: %d", gross_salary);
+
+        //handling negative values
+        if (basic_salary<0 || hra<0 || other_allow<0){
+            printf("Enter valid values");
+        }
+        else{
+            gross_salary = basic_salary+hra+other_allow;
+            printf("\nYour gross salary is: %d", gross_salary);
+        }
     }
     //defining 2nd choice
     if (type_of_pay == 2){
@@ -33,8 +40,18 @@ int main()
         scanf("%d", &hourly_pay);
         printf("Enter the hours you have worked: ");
         scanf("%d", &hours);
+        
+        //handling negative values
+        if (hourly_pay<0 || hours<0){
+            printf("Enter valid values");
+        }
+        else{
         gross_salary= (hourly_pay * hours);
         printf("\nYour gross salary is: %d", gross_salary);
+        }
+    }
+    else{ //handling any other values other than option 1 and 2
+        printf("Enter a valid choice");
     }
     return 0;
 }
